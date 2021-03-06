@@ -11,16 +11,16 @@
 - Drink
     - 10% concentration (c)
     - 90% Water (w)
-- Bottle
-    - Holds 330 chars from Pool [d]
-- Pallet
-    - Bottle[25][20][15] (L,B,H)
-    - Capacity: 6000 Bottles
+- ~~Bottle~~
+    - ~~Holds 330 chars from Pool \[d]~~
+- ~~Pallet~~
+    - ~~Bottle\[25]\[20]\[15] (L,B,H)~~
+    - Capacity: 6000 Bottles ???
 - CentralStorage
-    - StoragePlace[10][10] (L,B)
+    - ~~StoragePlace\[10]\[10] (L,B)~~
     - Initially filled with 300 Pallets (100%)
-- StoragePlace
-    - Holds 3 Pallets
+- ~~StoragePlace~~
+    - ~~Holds 3 Pallets~~
 
 - Robot
     - R01: Transport to station
