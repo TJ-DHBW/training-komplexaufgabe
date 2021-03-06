@@ -16,9 +16,9 @@
 - ~~Pallet~~
     - ~~Bottle\[25]\[20]\[15] (L,B,H)~~
     - Capacity: 6000 Bottles ???
-- CentralStorage
+- ~~CentralStorage~~
     - ~~StoragePlace\[10]\[10] (L,B)~~
-    - Initially filled with 300 Pallets (100%)
+    - ~~Initially filled with 300 Pallets (100%)~~
 - ~~StoragePlace~~
     - ~~Holds 3 Pallets~~
 

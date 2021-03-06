@@ -5,13 +5,15 @@ public class StoragePlace {
     private Pallet middlePallet;
     private Pallet topPallet;
 
-    public StoragePlace() {
-    }
 
     public StoragePlace(Pallet bottomPallet, Pallet middlePallet, Pallet topPallet) {
         this.bottomPallet = bottomPallet;
         this.middlePallet = middlePallet;
         this.topPallet = topPallet;
+    }
+
+    public static StoragePlace getStoragePlaceWithEmptyBottlePallets(){
+        return new StoragePlace(Pallet.getPalletWithEmptyBottles(), Pallet.getPalletWithEmptyBottles(), Pallet.getPalletWithEmptyBottles());
     }
 
     public Pallet retrieveNextPallet(){

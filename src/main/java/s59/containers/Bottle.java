@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class Bottle {
     private final char[] content;
 
+
     public Bottle() {
         content = new char[330];
         Arrays.fill(content, 'd');
