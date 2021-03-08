@@ -34,11 +34,11 @@
     - connected to T01(Concentrate, L:100,B:100,H:100) via hose
     - connected to T02(Water, L:1000,B:500,H:500) via hose
     - (implied: fills the bottles)
-- Tank
-- Hose
+- ~~Tank~~
+- ~~Hose~~
 - ControlCenter
     - observe level of tanks with sensor
-    - notify tanklaster on 15% concentrate and/or 20% water
+    - notify TankTruck on 15% concentrate and/or 20% water
 
 - TankTruck
     - Capacity: 25000
