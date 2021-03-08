@@ -38,6 +38,17 @@ public class Pallet {
         }
     }
 
+    public boolean isEmpty(){
+        for(Bottle[][] width : content){
+            for(Bottle[] height : width){
+                for(Bottle bottle : height){
+                    if(bottle != null) return false;
+                }
+            }
+        }
+        return true;
+    }
+
     public Bottle[][][] getContent() {
         return content;
     }

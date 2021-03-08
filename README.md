@@ -22,15 +22,15 @@
 - ~~StoragePlace~~
     - ~~Holds 3 Pallets~~
 
-- Robot
-    - R01: Transport to station
-    - R02: Fill station with empty bottles
-        - takes 25 empty bottles from Pallet (B:1,L:25)
-        - turn by 90° (B:25,L:1)
-        - put bottles in lane of station
-        - Observe lane with sensor and fill again
+- ~~Robot~~
+    - ~~R01: Transport to station~~
+    - ~~R02: Fill station with empty bottles~~
+        - ~~takes 25 empty bottles from Pallet (B:1,L:2~~5)
+        - ~~turn by 90° (B:25,L:1)~~
+        - ~~put bottles in lane of station~~
+        - ~~Observe lane with sensor and fill again~~
 - BottlingPlant
-    - 25 Slots
+    - ~~25 Slots~~
     - connected to T01(Concentrate, L:100,B:100,H:100) via hose
     - connected to T02(Water, L:1000,B:500,H:500) via hose
     - (implied: fills the bottles)
