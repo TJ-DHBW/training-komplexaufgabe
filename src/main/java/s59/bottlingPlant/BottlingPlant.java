@@ -1,5 +1,6 @@
 package s59.bottlingPlant;
 
+import s59.bottlingPlant.controlCenter.ControlCenter;
 import s59.bottlingPlant.lane.Lane;
 import s59.bottlingPlant.robot.Robot;
 import s59.containers.Pallet;
@@ -9,14 +10,20 @@ public class BottlingPlant implements IHoseConnectable {
     private final Lane emptyBottlesLane;
     private final Robot palletRefillRobot;
     private final Robot laneRefillRobot;
+    private final Hose concentrateConnection;
+    private final Hose waterConnection;
+    private final ControlCenter controlCenter;
 
     private char internalWaterStorage;
     private char internalConcentrateStorage;
 
-    public BottlingPlant(Robot palletRefillRobot, Robot laneRefillRobot, Lane emptyBottlesLane) {
+    public BottlingPlant(Robot palletRefillRobot, Robot laneRefillRobot, Lane emptyBottlesLane, Hose concentrateConnection, Hose waterConnection, ControlCenter controlCenter) {
         this.palletRefillRobot = palletRefillRobot;
         this.laneRefillRobot = laneRefillRobot;
         this.emptyBottlesLane = emptyBottlesLane;
+        this.concentrateConnection = concentrateConnection;
+        this.waterConnection = waterConnection;
+        this.controlCenter = controlCenter;
 
         this.internalWaterStorage = 0;
         this.internalConcentrateStorage = 0;
