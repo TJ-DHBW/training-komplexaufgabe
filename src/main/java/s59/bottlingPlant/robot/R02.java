@@ -4,12 +4,10 @@ import s59.bottlingPlant.BottlingPlant;
 import s59.containers.Bottle;
 
 public class R02 extends Robot {
-    private final BottlingPlant bottlingPlant;
+    private BottlingPlant bottlingPlant;
     private final LaneSensor laneSensor;
 
-    public R02(BottlingPlant bottlingPlant) {
-        this.bottlingPlant = bottlingPlant;
-
+    public R02() {
         this.laneSensor = new LaneSensor(this);
     }
 
@@ -73,5 +71,9 @@ public class R02 extends Robot {
 
     public LaneSensor getLaneSensor() {
         return laneSensor;
+    }
+
+    public void setBottlingPlant(BottlingPlant bottlingPlant) {
+        this.bottlingPlant = bottlingPlant;
     }
 }

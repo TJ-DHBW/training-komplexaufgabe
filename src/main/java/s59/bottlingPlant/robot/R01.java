@@ -6,13 +6,9 @@ import s59.containers.Pallet;
 import s59.containers.StoragePlace;
 
 public class R01 extends Robot {
-    private final CentralStorage originOfPallets;
-    private final BottlingPlant destinationOfPallets;
+    private CentralStorage originOfPallets;
+    private BottlingPlant destinationOfPallets;
 
-    public R01(CentralStorage originOfPallets, BottlingPlant destinationOfPallets) {
-        this.originOfPallets = originOfPallets;
-        this.destinationOfPallets = destinationOfPallets;
-    }
 
     public void carryPalletIfSpace(){
         if(destinationOfPallets.getStorageForPalletWithEmptyBottles() == null){
@@ -30,5 +26,13 @@ public class R01 extends Robot {
     @Override
     public void work() {
         carryPalletIfSpace();
+    }
+
+    public void setOriginOfPallets(CentralStorage originOfPallets) {
+        this.originOfPallets = originOfPallets;
+    }
+
+    public void setDestinationOfPallets(BottlingPlant destinationOfPallets) {
+        this.destinationOfPallets = destinationOfPallets;
     }
 }

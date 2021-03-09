@@ -6,12 +6,14 @@ import s59.bottlingPlant.tank.Tank;
 
 public class ControlCenter {
     private final TankTruck[] availableTrucks;
+    private final TankSensor[] sensors;
 
-    public ControlCenter(int numberOfTrucks) {
+    public ControlCenter(int numberOfTrucks, TankSensor[] sensors) {
         this.availableTrucks = new TankTruck[numberOfTrucks];
         for(int i = 0; i < availableTrucks.length; i++){
             availableTrucks[i] = new TankTruck(25000);
         }
+        this.sensors = sensors;
     }
 
     public void refillTank(Tank tank){
