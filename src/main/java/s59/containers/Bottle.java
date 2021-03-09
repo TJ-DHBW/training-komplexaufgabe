@@ -3,11 +3,12 @@ package s59.containers;
 import java.util.Arrays;
 
 public class Bottle {
+    private final int size = 330;
     private final char[] content;
 
 
     public Bottle() {
-        content = new char[330];
+        content = new char[size];
         Arrays.fill(content, 'd');
     }
 
@@ -23,5 +24,9 @@ public class Bottle {
 
     public char[] getContent() {
         return content;
+    }
+
+    public int getSize() {
+        return size;
     }
 }
