@@ -1,19 +1,20 @@
 package s59.bottlingPlant;
 
 import s59.bottlingPlant.controlCenter.ControlCenter;
+import s59.bottlingPlant.hose.Hose;
+import s59.bottlingPlant.hose.IHoseConnectable;
 import s59.bottlingPlant.lane.Lane;
 import s59.bottlingPlant.robot.Robot;
 import s59.containers.Pallet;
 
 public class BottlingPlant implements IHoseConnectable {
-    private Pallet storageForPalletWithEmptyBottles;
     private final Lane emptyBottlesLane;
     private final Robot palletRefillRobot;
     private final Robot laneRefillRobot;
     private final Hose concentrateConnection;
     private final Hose waterConnection;
     private final ControlCenter controlCenter;
-
+    private Pallet storageForPalletWithEmptyBottles;
     private char internalWaterStorage;
     private char internalConcentrateStorage;
 
@@ -33,14 +34,14 @@ public class BottlingPlant implements IHoseConnectable {
 
     @Override
     public boolean push(char contentChar) {
-        switch (contentChar){
+        switch (contentChar) {
             case 'w':
-                if(internalWaterStorage != 0){
+                if (internalWaterStorage != 0) {
                     internalWaterStorage = contentChar;
                     return true;
                 }
             case 'c':
-                if(internalConcentrateStorage != 0){
+                if (internalConcentrateStorage != 0) {
                     internalConcentrateStorage = contentChar;
                     return true;
                 }

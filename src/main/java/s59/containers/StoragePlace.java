@@ -12,22 +12,20 @@ public class StoragePlace {
         this.topPallet = topPallet;
     }
 
-    public static StoragePlace getStoragePlaceWithEmptyBottlePallets(){
+    public static StoragePlace getStoragePlaceWithEmptyBottlePallets() {
         return new StoragePlace(Pallet.getPalletWithEmptyBottles(), Pallet.getPalletWithEmptyBottles(), Pallet.getPalletWithEmptyBottles());
     }
 
-    public Pallet retrieveNextPallet(){
-        if(topPallet != null){
+    public Pallet retrieveNextPallet() {
+        if (topPallet != null) {
             Pallet tmp = topPallet;
             topPallet = null;
             return tmp;
-        }
-        else if(middlePallet != null) {
+        } else if (middlePallet != null) {
             Pallet tmp = middlePallet;
             middlePallet = null;
             return tmp;
-        }
-        else if(bottomPallet != null){
+        } else if (bottomPallet != null) {
             Pallet tmp = bottomPallet;
             bottomPallet = null;
             return tmp;

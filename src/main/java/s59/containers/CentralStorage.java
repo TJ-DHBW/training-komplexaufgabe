@@ -12,10 +12,10 @@ public class CentralStorage {
         this.storagePlaces = storagePlaces;
     }
 
-    public static CentralStorage getCentralStorageWithEmptyBottlePallets(){
+    public static CentralStorage getCentralStorageWithEmptyBottlePallets() {
         StoragePlace[][] storagePlaces = new StoragePlace[10][10];
-        for(StoragePlace[] width : storagePlaces){
-            for(int i = 0; i < width.length; i++){
+        for (StoragePlace[] width : storagePlaces) {
+            for (int i = 0; i < width.length; i++) {
                 width[i] = StoragePlace.getStoragePlaceWithEmptyBottlePallets();
             }
         }
@@ -23,10 +23,10 @@ public class CentralStorage {
         return new CentralStorage(storagePlaces);
     }
 
-    private static void checkDimensions(StoragePlace[][] storagePlaces){
-        if(storagePlaces.length != 10) throw new IllegalArgumentException("Length must be 10.");
-        for(StoragePlace[] width : storagePlaces){
-            if(width.length != 10) throw new IllegalArgumentException("Width must be 10.");
+    private static void checkDimensions(StoragePlace[][] storagePlaces) {
+        if (storagePlaces.length != 10) throw new IllegalArgumentException("Length must be 10.");
+        for (StoragePlace[] width : storagePlaces) {
+            if (width.length != 10) throw new IllegalArgumentException("Width must be 10.");
         }
     }
 

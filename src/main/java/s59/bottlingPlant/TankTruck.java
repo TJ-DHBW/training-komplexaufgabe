@@ -9,24 +9,24 @@ public class TankTruck {
         this.content = new char[size];
     }
 
-    public void fill(char contentChar, int amount){
-        for(int i = 0; i < content.length; i++){
-            if(amount > 0){
+    public void fill(char contentChar, int amount) {
+        for (int i = 0; i < content.length; i++) {
+            if (amount > 0) {
                 content[i] = contentChar;
                 amount--;
-            }else{
+            } else {
                 content[i] = 0;
             }
         }
 
-        if(amount > 0) throw new IllegalArgumentException("You cant fill more then the Trucksize into the Truck.");
+        if (amount > 0) throw new IllegalArgumentException("You cant fill more then the Trucksize into the Truck.");
     }
 
-    public void deliverContents(Tank destination){
-        for(int i = 0; i < content.length; i++){
-            if(content[i] != 0){
+    public void deliverContents(Tank destination) {
+        for (int i = 0; i < content.length; i++) {
+            if (content[i] != 0) {
                 boolean pushed = destination.push(content[i]);
-                if(!pushed) throw new IllegalStateException("Truck could not unload all its content.");
+                if (!pushed) throw new IllegalStateException("Truck could not unload all its content.");
                 content[i] = 0;
             }
         }

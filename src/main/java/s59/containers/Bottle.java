@@ -11,9 +11,9 @@ public class Bottle {
         Arrays.fill(content, 'd');
     }
 
-    public boolean insertFluid(char fluidChar){
-        for(int i = 0; i < content.length; i++){
-            if(content[i] == 'd'){
+    public boolean insertFluid(char fluidChar) {
+        for (int i = 0; i < content.length; i++) {
+            if (content[i] == 'd') {
                 content[i] = fluidChar;
                 return true;
             }

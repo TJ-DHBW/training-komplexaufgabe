@@ -10,12 +10,12 @@ public class R01 extends Robot {
     private BottlingPlant destinationOfPallets;
 
 
-    public void carryPalletIfSpace(){
-        if(destinationOfPallets.getStorageForPalletWithEmptyBottles() == null){
-            for(StoragePlace[] width : originOfPallets.getStoragePlaces()){
-                for(StoragePlace storagePlace : width){
+    public void carryPalletIfSpace() {
+        if (destinationOfPallets.getStorageForPalletWithEmptyBottles() == null) {
+            for (StoragePlace[] width : originOfPallets.getStoragePlaces()) {
+                for (StoragePlace storagePlace : width) {
                     Pallet pallet = storagePlace.retrieveNextPallet();
-                    if(pallet != null){
+                    if (pallet != null) {
                         destinationOfPallets.setStorageForPalletWithEmptyBottles(pallet);
                     }
                 }

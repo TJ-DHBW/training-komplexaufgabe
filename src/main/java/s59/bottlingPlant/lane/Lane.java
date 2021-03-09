@@ -14,30 +14,30 @@ public class Lane {
         this.observers = new ArrayList<>();
     }
 
-    public void addObserver(ILaneObserver observer){
+    public void addObserver(ILaneObserver observer) {
         observers.add(observer);
     }
 
-    public void removeObserver(ILaneObserver observer){
+    public void removeObserver(ILaneObserver observer) {
         observers.remove(observer);
     }
 
-    public boolean isLaneEmpty(){
-        for(Bottle bottle : laneContent){
-            if(bottle != null) return false;
+    public boolean isLaneEmpty() {
+        for (Bottle bottle : laneContent) {
+            if (bottle != null) return false;
         }
         return true;
     }
 
-    public Bottle[] pullEmptyBottles(){
+    public Bottle[] pullEmptyBottles() {
         Bottle[] tmp = Arrays.copyOf(laneContent, laneContent.length);
         Arrays.fill(laneContent, null);
         notifyObservers();
         return tmp;
     }
 
-    private void notifyObservers(){
-        for(ILaneObserver observer : observers){
+    private void notifyObservers() {
+        for (ILaneObserver observer : observers) {
             observer.notifyLaneEmpty();
         }
     }

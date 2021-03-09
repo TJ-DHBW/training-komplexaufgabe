@@ -10,22 +10,22 @@ public class ControlCenter {
 
     public ControlCenter(int numberOfTrucks, TankSensor[] sensors) {
         this.availableTrucks = new TankTruck[numberOfTrucks];
-        for(int i = 0; i < availableTrucks.length; i++){
+        for (int i = 0; i < availableTrucks.length; i++) {
             availableTrucks[i] = new TankTruck(25000);
         }
         this.sensors = sensors;
     }
 
-    public void refillTank(Tank tank){
+    public void refillTank(Tank tank) {
         int missingAmount = tank.getMaxLevel() - tank.getCurrentLevel();
         char refillChar = 0;
-        switch (tank.getId()){
+        switch (tank.getId()) {
             case "T01":
                 refillChar = 'c';
             case "T02":
                 refillChar = 'w';
         }
-        if(refillChar == 0) throw new RuntimeException("Tank is not known: " + tank.getId());
+        if (refillChar == 0) throw new RuntimeException("Tank is not known: " + tank.getId());
 
         int truckIndex = Configuration.instance.r.nextInt(availableTrucks.length);
         TankTruck chosenTruck = availableTrucks[truckIndex];

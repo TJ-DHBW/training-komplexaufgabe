@@ -10,16 +10,16 @@ public class Pallet {
     private final Bottle[][][] content;
 
 
-    public Pallet(Bottle[][][] content){
+    public Pallet(Bottle[][][] content) {
         checkDimensions(content);
         this.content = content;
     }
 
-    public static Pallet getPalletWithEmptyBottles(){
+    public static Pallet getPalletWithEmptyBottles() {
         Bottle[][][] bottles = new Bottle[25][20][15];
-        for(Bottle[][] width : bottles){
-            for(Bottle[] height : width){
-                for(int i = 0; i < height.length; i++){
+        for (Bottle[][] width : bottles) {
+            for (Bottle[] height : width) {
+                for (int i = 0; i < height.length; i++) {
                     height[i] = new Bottle();
                 }
             }
@@ -28,21 +28,21 @@ public class Pallet {
         return new Pallet(bottles);
     }
 
-    private static void checkDimensions(Bottle[][][] content){
-        if(content.length != 25) throw new IllegalArgumentException("Length must be 25.");
-        for(Bottle[][] width : content){
-            if(width.length != 20) throw new IllegalArgumentException("Width must be 20.");
-            for(Bottle[] height : width){
-                if(height.length != 15) throw new IllegalArgumentException("Height must be 15.");
+    private static void checkDimensions(Bottle[][][] content) {
+        if (content.length != 25) throw new IllegalArgumentException("Length must be 25.");
+        for (Bottle[][] width : content) {
+            if (width.length != 20) throw new IllegalArgumentException("Width must be 20.");
+            for (Bottle[] height : width) {
+                if (height.length != 15) throw new IllegalArgumentException("Height must be 15.");
             }
         }
     }
 
-    public boolean isEmpty(){
-        for(Bottle[][] width : content){
-            for(Bottle[] height : width){
-                for(Bottle bottle : height){
-                    if(bottle != null) return false;
+    public boolean isEmpty() {
+        for (Bottle[][] width : content) {
+            for (Bottle[] height : width) {
+                for (Bottle bottle : height) {
+                    if (bottle != null) return false;
                 }
             }
         }

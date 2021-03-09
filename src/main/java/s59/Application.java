@@ -1,9 +1,9 @@
 package s59;
 
 import s59.bottlingPlant.BottlingPlant;
-import s59.bottlingPlant.Hose;
 import s59.bottlingPlant.controlCenter.ControlCenter;
 import s59.bottlingPlant.controlCenter.TankSensor;
+import s59.bottlingPlant.hose.Hose;
 import s59.bottlingPlant.lane.Lane;
 import s59.bottlingPlant.robot.R01;
 import s59.bottlingPlant.robot.R02;
@@ -22,7 +22,7 @@ public class Application {
         System.out.println("Done");
     }
 
-    private void init(){
+    private void init() {
         centralStorage = CentralStorage.getCentralStorageWithEmptyBottlePallets();
 
         R01 r01 = new R01();
@@ -37,7 +37,7 @@ public class Application {
         TankSensor waterSensor = new TankSensor(waterTank);
 
 
-        ControlCenter controlCenter = new ControlCenter(3, new TankSensor[] {concentrateSensor, waterSensor});
+        ControlCenter controlCenter = new ControlCenter(3, new TankSensor[]{concentrateSensor, waterSensor});
         concentrateSensor.setControlCenter(controlCenter);
         concentrateSensor.setTriggerRatio(0.15f);
         concentrateTank.addObserver(concentrateSensor);

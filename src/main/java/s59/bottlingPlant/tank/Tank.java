@@ -1,6 +1,6 @@
 package s59.bottlingPlant.tank;
 
-import s59.bottlingPlant.IHoseConnectable;
+import s59.bottlingPlant.hose.IHoseConnectable;
 
 import java.util.ArrayList;
 
@@ -8,9 +8,8 @@ public class Tank implements IHoseConnectable {
     private final String id;
     private final char[][][] content;
     private final int maxLevel;
-    private int currentLevel;
-
     private final ArrayList<ITankObserver> observers;
+    private int currentLevel;
 
     public Tank(String id, int length, int width, int height) {
         this.id = id;
@@ -21,30 +20,30 @@ public class Tank implements IHoseConnectable {
         this.observers = new ArrayList<>();
     }
 
-    public void fill(char contentChar){
-        while(push(contentChar));
+    public void fill(char contentChar) {
+        while (push(contentChar)) ;
     }
 
-    public void addObserver(ITankObserver observer){
+    public void addObserver(ITankObserver observer) {
         observers.add(observer);
     }
 
-    public void removeObserver(ITankObserver observer){
+    public void removeObserver(ITankObserver observer) {
         observers.remove(observer);
     }
 
-    private void notifyObservers(){
-        for(ITankObserver observer : observers){
+    private void notifyObservers() {
+        for (ITankObserver observer : observers) {
             observer.levelChanged(currentLevel);
         }
     }
 
     @Override
     public boolean push(char contentChar) {
-        for(char[][] width : content){
-            for(char[] height : width){
-                for(int i = 0; i < height.length; i++){
-                    if(height[i] == 0){
+        for (char[][] width : content) {
+            for (char[] height : width) {
+                for (int i = 0; i < height.length; i++) {
+                    if (height[i] == 0) {
                         height[i] = contentChar;
                         currentLevel++;
                         notifyObservers();
@@ -59,10 +58,10 @@ public class Tank implements IHoseConnectable {
 
     @Override
     public char pull() {
-        for(char[][] width : content){
-            for(char[] height : width){
-                for(int i = 0; i < height.length; i++){
-                    if(height[i] != 0){
+        for (char[][] width : content) {
+            for (char[] height : width) {
+                for (int i = 0; i < height.length; i++) {
+                    if (height[i] != 0) {
                         char tmp = height[i];
                         height[i] = 0;
                         currentLevel--;
