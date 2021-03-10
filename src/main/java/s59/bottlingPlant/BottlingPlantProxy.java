@@ -1,6 +1,8 @@
 package s59.bottlingPlant;
 
+import s59.bottlingPlant.lane.Lane;
 import s59.containers.Bottle;
+import s59.containers.Pallet;
 
 public class BottlingPlantProxy implements IBottlingPlant {
     private final BottlingPlant bottlingPlant;
@@ -44,10 +46,46 @@ public class BottlingPlantProxy implements IBottlingPlant {
 
     @Override
     public void setStarted(boolean value) {
-        if (!loggedIn){
+        if (!loggedIn) {
             System.out.println("Please log in first.");
             return;
         }
         bottlingPlant.setStarted(value);
+    }
+
+    @Override
+    public Lane getEmptyBottlesLane() {
+        if (!loggedIn) {
+            System.out.println("Please log in first.");
+            return null;
+        }
+        return bottlingPlant.getEmptyBottlesLane();
+    }
+
+    @Override
+    public Pallet getStorageForPalletWithEmptyBottles() {
+        if (!loggedIn) {
+            System.out.println("Please log in first.");
+            return null;
+        }
+        return bottlingPlant.getStorageForPalletWithEmptyBottles();
+    }
+
+    @Override
+    public Bottle[] getBottleWaitingArea() {
+        if (!loggedIn) {
+            System.out.println("Please log in first.");
+            return null;
+        }
+        return bottlingPlant.getBottleWaitingArea();
+    }
+
+    @Override
+    public int getTotalFilledBottles() {
+        if (!loggedIn) {
+            System.out.println("Please log in first.");
+            return -1;
+        }
+        return bottlingPlant.getTotalFilledBottles();
     }
 }

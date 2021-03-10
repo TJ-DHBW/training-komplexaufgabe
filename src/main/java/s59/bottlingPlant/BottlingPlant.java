@@ -22,6 +22,7 @@ public class BottlingPlant implements IHoseConnectable, IBottlingPlant {
     private char internalWaterStorage;
     private char internalConcentrateStorage;
     private boolean isStarted;
+    private int totalFilledBottles;
 
     public BottlingPlant(Robot palletRefillRobot, Robot laneRefillRobot, Lane emptyBottlesLane, Hose concentrateConnection, Hose waterConnection, ControlCenter controlCenter) {
         this.palletRefillRobot = palletRefillRobot;
@@ -34,6 +35,7 @@ public class BottlingPlant implements IHoseConnectable, IBottlingPlant {
         this.internalWaterStorage = 0;
         this.internalConcentrateStorage = 0;
         this.isStarted = false;
+        this.totalFilledBottles = 0;
     }
 
     //TODO
@@ -87,14 +89,16 @@ public class BottlingPlant implements IHoseConnectable, IBottlingPlant {
         int size = bottle.getSize();
 
         int waterAmount = (int) Math.floor(size * Configuration.instance.waterRatio);
-        for(int i = 0; i < waterAmount; i++){
+        for (int i = 0; i < waterAmount; i++) {
             bottle.insertFluid(getWater());
         }
 
         int concentrateAmount = (int) Math.floor(size * Configuration.instance.concentrateRatio);
-        for(int i = 0; i < concentrateAmount; i++){
+        for (int i = 0; i < concentrateAmount; i++) {
             bottle.insertFluid(getConcentrate());
         }
+
+        totalFilledBottles++;
     }
 
     @Override
@@ -135,6 +139,14 @@ public class BottlingPlant implements IHoseConnectable, IBottlingPlant {
 
     public Robot getPalletRefillRobot() {
         return palletRefillRobot;
+    }
+
+    public Bottle[] getBottleWaitingArea() {
+        return bottleWaitingArea;
+    }
+
+    public int getTotalFilledBottles() {
+        return totalFilledBottles;
     }
     //endregion
 }
