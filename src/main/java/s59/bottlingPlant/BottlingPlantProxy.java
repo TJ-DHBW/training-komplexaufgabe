@@ -21,6 +21,7 @@ public class BottlingPlantProxy implements IBottlingPlant {
         if(userName.equals(this.userName)){
             //TODO check password
             loggedIn = true;
+            return true;
         }
 
         return false;

@@ -1,5 +1,6 @@
 package s59.bottlingPlant.robot;
 
+import s59.Configuration;
 import s59.bottlingPlant.BottlingPlant;
 import s59.containers.Bottle;
 
@@ -21,7 +22,7 @@ public class R02 extends Robot {
         if (initialBottles.length != 1)
             throw new IllegalArgumentException("the first array must only have one element.");
 
-        Bottle[][] ret = new Bottle[initialBottles.length][1];
+        Bottle[][] ret = new Bottle[initialBottles[0].length][1];
         for (int i = 0; i < initialBottles[0].length; i++) {
             ret[i][0] = initialBottles[0][i];
         }
@@ -33,6 +34,7 @@ public class R02 extends Robot {
         if (!bottlingPlant.getEmptyBottlesLane().isLaneEmpty()) return;
 
         putBottlesInMachine(rotateBottles(retrieveEmptyBottlesFromPallet()));
+        if (Configuration.instance.verbose) System.out.println("Refilled lane.");
     }
 
     private Bottle[][] retrieveEmptyBottlesFromPallet() {

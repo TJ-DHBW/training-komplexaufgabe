@@ -1,5 +1,6 @@
 package s59.bottlingPlant.robot;
 
+import s59.Configuration;
 import s59.bottlingPlant.BottlingPlant;
 import s59.containers.CentralStorage;
 import s59.containers.Pallet;
@@ -17,10 +18,16 @@ public class R01 extends Robot {
                     Pallet pallet = storagePlace.retrieveNextPallet();
                     if (pallet != null) {
                         destinationOfPallets.setStorageForPalletWithEmptyBottles(pallet);
+                        if (Configuration.instance.verbose)
+                            System.out.println("Brought a new pallet of empty bottles.");
+                        return;
                     }
                 }
             }
         }
+
+        System.out.println("No more pallets with empty bottles found.");
+        throw new IllegalStateException("Please don't order that much at one. We dont have any empty Bottles left.");
     }
 
     @Override

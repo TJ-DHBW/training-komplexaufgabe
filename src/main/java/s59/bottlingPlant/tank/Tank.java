@@ -3,6 +3,7 @@ package s59.bottlingPlant.tank;
 import s59.bottlingPlant.hose.IHoseConnectable;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Tank implements IHoseConnectable {
     private final String id;
@@ -21,7 +22,12 @@ public class Tank implements IHoseConnectable {
     }
 
     public void fill(char contentChar) {
-        while (push(contentChar)) ;
+        for (char[][] width : content) {
+            for (char[] height : width) {
+                Arrays.fill(height, contentChar);
+            }
+        }
+        currentLevel = maxLevel;
     }
 
     public void addObserver(ITankObserver observer) {
@@ -40,6 +46,24 @@ public class Tank implements IHoseConnectable {
 
     @Override
     public boolean push(char contentChar) {
+        if (contentChar == 'w') {
+            int i = 0;
+        }
+        if (currentLevel >= maxLevel) return false;
+
+        int length = (((currentLevel) / content[0][0].length) / content[0].length) % content.length;
+        int width = ((currentLevel) / content[0][0].length) % content[0].length;
+        int height = (currentLevel) % content[0][0].length;
+
+        if (content[length][width][height] == 0) {
+            content[length][width][height] = contentChar;
+            currentLevel++;
+            notifyObservers();
+            return true;
+        }
+
+        throw new IllegalStateException("There is content where no content should be.");
+        /* This is to slow
         for (char[][] width : content) {
             for (char[] height : width) {
                 for (int i = 0; i < height.length; i++) {
@@ -54,10 +78,27 @@ public class Tank implements IHoseConnectable {
         }
 
         return false;
+         */
     }
 
     @Override
     public char pull() {
+        if (currentLevel <= 0) return 0;
+
+        int length = (((currentLevel - 1) / content[0][0].length) / content[0].length) % content.length;
+        int width = ((currentLevel - 1) / content[0][0].length) % content[0].length;
+        int height = (currentLevel - 1) % content[0][0].length;
+
+        if (content[length][width][height] != 0) {
+            char tmp = content[length][width][height];
+            content[length][width][height] = 0;
+            currentLevel--;
+            notifyObservers();
+            return tmp;
+        }
+
+        throw new IllegalStateException("There is no content where content should be.");
+        /* This is to slow
         for (char[][] width : content) {
             for (char[] height : width) {
                 for (int i = 0; i < height.length; i++) {
@@ -73,6 +114,7 @@ public class Tank implements IHoseConnectable {
         }
 
         return 0;
+         */
     }
 
     public int getMaxLevel() {

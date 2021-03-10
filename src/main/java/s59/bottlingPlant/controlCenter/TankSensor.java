@@ -7,7 +7,7 @@ public class TankSensor implements ITankObserver {
     private final Tank observedTank;
     private ControlCenter controlCenter;
 
-    private float triggerRatio;
+    private double triggerRatio;
 
     public TankSensor(Tank observedTank) {
         this.observedTank = observedTank;
@@ -15,13 +15,13 @@ public class TankSensor implements ITankObserver {
 
     @Override
     public void levelChanged(int newLevel) {
-        float fillRatio = (float) newLevel / observedTank.getMaxLevel();
+        double fillRatio = (double) newLevel / observedTank.getMaxLevel();
         if (fillRatio <= triggerRatio) {
             controlCenter.refillTank(observedTank);
         }
     }
 
-    public void setTriggerRatio(float triggerRatio) {
+    public void setTriggerRatio(double triggerRatio) {
         this.triggerRatio = triggerRatio;
     }
 

@@ -3,15 +3,16 @@ package s59.commands;
 import s59.bottlingPlant.IBottlingPlant;
 
 public class Start implements ICommand {
-    private IBottlingPlant bottlingPlant;
+    private IBottlingPlant target;
 
     //TODO Test
     @Override
     public void execute() {
-        bottlingPlant.setStarted(true);
+        target.setStarted(true);
     }
 
-    public void setBottlingPlant(IBottlingPlant bottlingPlant) {
-        this.bottlingPlant = bottlingPlant;
+    @Override
+    public void setTarget(IBottlingPlant target) {
+        this.target = target;
     }
 }

@@ -32,6 +32,7 @@ public class BottlingPlant implements IHoseConnectable, IBottlingPlant {
         this.waterConnection = waterConnection;
         this.controlCenter = controlCenter;
 
+        this.bottleWaitingArea = new Bottle[0];
         this.internalWaterStorage = 0;
         this.internalConcentrateStorage = 0;
         this.isStarted = false;
@@ -105,12 +106,12 @@ public class BottlingPlant implements IHoseConnectable, IBottlingPlant {
     public boolean push(char contentChar) {
         switch (contentChar) {
             case 'w':
-                if (internalWaterStorage != 0) {
+                if (internalWaterStorage == 0) {
                     internalWaterStorage = contentChar;
                     return true;
                 }
             case 'c':
-                if (internalConcentrateStorage != 0) {
+                if (internalConcentrateStorage == 0) {
                     internalConcentrateStorage = contentChar;
                     return true;
                 }
@@ -148,5 +149,14 @@ public class BottlingPlant implements IHoseConnectable, IBottlingPlant {
     public int getTotalFilledBottles() {
         return totalFilledBottles;
     }
+
+    public ControlCenter getControlCenter() {
+        return controlCenter;
+    }
+
+    public Robot getLaneRefillRobot() {
+        return laneRefillRobot;
+    }
+
     //endregion
 }

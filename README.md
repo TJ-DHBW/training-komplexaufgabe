@@ -1,9 +1,9 @@
 # S59 - Getränkeabfüllung
 
 #### Patterns
-- Proxy
+- ~~Proxy~~
 - ~~Observer~~
-- Command
+- ~~Command~~
 
 ### TODOs
 - ~~Username and pasword stored on proxy~~
