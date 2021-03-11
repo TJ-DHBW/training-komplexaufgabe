@@ -34,6 +34,10 @@ public class StoragePlace {
         return null;
     }
 
+    public Pallet[] getPalletsAsArray() {
+        return new Pallet[]{topPallet, middlePallet, bottomPallet};
+    }
+
     public void setBottomPallet(Pallet bottomPallet) {
         this.bottomPallet = bottomPallet;
     }

@@ -128,4 +128,8 @@ public class Tank implements IHoseConnectable {
     public String getId() {
         return id;
     }
+
+    public char[][][] getContent() {
+        return content;
+    }
 }

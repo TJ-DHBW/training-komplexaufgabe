@@ -89,4 +89,8 @@ public class BottlingPlantProxy implements IBottlingPlant {
         }
         return bottlingPlant.getTotalFilledBottles();
     }
+
+    public boolean isLoggedIn() {
+        return loggedIn;
+    }
 }

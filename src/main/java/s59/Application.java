@@ -29,7 +29,7 @@ public class Application {
         System.out.println("Done");
     }
 
-    private void init() {
+    public void init() {
         centralStorage = CentralStorage.getCentralStorageWithEmptyBottlePallets();
 
         R01 r01 = new R01();
@@ -74,7 +74,7 @@ public class Application {
         waterHose.connect(waterTank);
     }
 
-    private void prepare() {
+    public void prepare() {
         bottlingPlant.getPalletRefillRobot().work();
         bottlingPlant.getLaneRefillRobot().work();
         bottlingPlant.getControlCenter().getTerminal().sendCommand(new Login("root", "pa55w0rd"));
@@ -85,5 +85,13 @@ public class Application {
         bottlingPlant.getControlCenter().getTerminal().sendCommand(new Order(690000, "Cola"));
         bottlingPlant.getControlCenter().getTerminal().sendCommand(new Order(420000, "IceTea"));
         bottlingPlant.getControlCenter().getTerminal().sendCommand(new Info());
+    }
+
+    public CentralStorage getCentralStorage() {
+        return centralStorage;
+    }
+
+    public BottlingPlant getBottlingPlant() {
+        return bottlingPlant;
     }
 }

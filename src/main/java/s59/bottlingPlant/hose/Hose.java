@@ -46,4 +46,12 @@ public class Hose {
             System.out.println("Connection 2 is empty");
         }
     }
+
+    public IHoseConnectable getConnection1() {
+        return connection1;
+    }
+
+    public IHoseConnectable getConnection2() {
+        return connection2;
+    }
 }

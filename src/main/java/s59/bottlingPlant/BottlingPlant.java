@@ -77,11 +77,6 @@ public class BottlingPlant implements IHoseConnectable, IBottlingPlant {
     }
 
     @Override
-    public void setStarted(boolean started) {
-        isStarted = started;
-    }
-
-    @Override
     public void fillBottle(Bottle bottle) {
         if (!isStarted) throw new IllegalStateException("Cant fill bottles while off.");
 
@@ -154,6 +149,23 @@ public class BottlingPlant implements IHoseConnectable, IBottlingPlant {
 
     public Robot getLaneRefillRobot() {
         return laneRefillRobot;
+    }
+
+    public Hose getConcentrateConnection() {
+        return concentrateConnection;
+    }
+
+    public Hose getWaterConnection() {
+        return waterConnection;
+    }
+
+    public boolean isStarted() {
+        return isStarted;
+    }
+
+    @Override
+    public void setStarted(boolean started) {
+        isStarted = started;
     }
 
     //endregion

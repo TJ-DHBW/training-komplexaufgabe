@@ -12,6 +12,10 @@ public class Terminal {
         command.execute();
     }
 
+    public BottlingPlantProxy getBottlingPlant() {
+        return bottlingPlant;
+    }
+
     public void setBottlingPlant(BottlingPlant bottlingPlant) {
         this.bottlingPlant = new BottlingPlantProxy(bottlingPlant);
     }
