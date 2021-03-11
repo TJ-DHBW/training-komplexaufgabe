@@ -7,7 +7,7 @@
 
 ### TODOs
 - ~~Username and pasword stored on proxy~~
-- password encrypted (SHA-256)
+- ~~password encrypted (SHA-256)~~
 - ~~Drink~~
     - ~~10% concentration (c)~~
     - ~~90% Water (w)~~

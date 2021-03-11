@@ -8,8 +8,7 @@ public class BottlingPlantProxy implements IBottlingPlant {
     private final BottlingPlant bottlingPlant;
 
     private final String userName = "root";
-    //TODO encrypt
-    private final String password = "pa55w0rd";
+    private final String password = SHA256.toHexString(SHA256.getSHA("pa55w0rd"));
     private boolean loggedIn;
 
     public BottlingPlantProxy(BottlingPlant bottlingPlant) {
@@ -18,10 +17,11 @@ public class BottlingPlantProxy implements IBottlingPlant {
     }
 
     public boolean logIn(String userName, String password){
-        if(userName.equals(this.userName)){
-            //TODO check password
-            loggedIn = true;
-            return true;
+        if(userName.equals(this.userName)) {
+            if (SHA256.toHexString(SHA256.getSHA(password)).equals(this.password)) {
+                loggedIn = true;
+                return true;
+            }
         }
 
         return false;
