@@ -14,7 +14,6 @@ public class Order implements ICommand {
         this.type = type;
     }
 
-    //TODO Test
     @Override
     public void execute() {
         Bottle[] bottles = new Bottle[amount];

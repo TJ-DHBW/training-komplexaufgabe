@@ -16,8 +16,8 @@ public class BottlingPlantProxy implements IBottlingPlant {
         this.loggedIn = false;
     }
 
-    public boolean logIn(String userName, String password){
-        if(userName.equals(this.userName)) {
+    public boolean logIn(String userName, String password) {
+        if (userName.equals(this.userName)) {
             if (SHA256.toHexString(SHA256.getSHA(password)).equals(this.password)) {
                 loggedIn = true;
                 return true;
@@ -29,7 +29,7 @@ public class BottlingPlantProxy implements IBottlingPlant {
 
     @Override
     public Bottle getNextBottle() {
-        if (!loggedIn){
+        if (!loggedIn) {
             System.out.println("Please log in first.");
             return null;
         }
@@ -38,7 +38,7 @@ public class BottlingPlantProxy implements IBottlingPlant {
 
     @Override
     public void fillBottle(Bottle bottleToFill) {
-        if (!loggedIn){
+        if (!loggedIn) {
             System.out.println("Please log in first.");
             return;
         }

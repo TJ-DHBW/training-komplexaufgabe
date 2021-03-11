@@ -39,18 +39,17 @@ public class BottlingPlant implements IHoseConnectable, IBottlingPlant {
         this.totalFilledBottles = 0;
     }
 
-    //TODO
 
-    private void rotateBottlesIn(){
+    private void rotateBottlesIn() {
         bottleWaitingArea = emptyBottlesLane.pullEmptyBottles();
     }
 
     @Override
-    public Bottle getNextBottle(){
-        if(!isStarted) throw new IllegalStateException("Cant provide Bottles while off.");
+    public Bottle getNextBottle() {
+        if (!isStarted) throw new IllegalStateException("Cant provide Bottles while off.");
 
-        for(int i = 1; i < bottleWaitingArea.length; i++){
-            if(bottleWaitingArea[i] != null){
+        for (int i = 1; i < bottleWaitingArea.length; i++) {
+            if (bottleWaitingArea[i] != null) {
                 Bottle tmp = bottleWaitingArea[i];
                 bottleWaitingArea[i] = null;
                 return tmp;
@@ -63,15 +62,15 @@ public class BottlingPlant implements IHoseConnectable, IBottlingPlant {
         return tmp;
     }
 
-    private char getWater(){
-        if(internalWaterStorage == 0) waterConnection.pull();
+    private char getWater() {
+        if (internalWaterStorage == 0) waterConnection.pull();
         char tmp = internalWaterStorage;
         internalWaterStorage = 0;
         return tmp;
     }
 
-    private char getConcentrate(){
-        if(internalConcentrateStorage == 0) concentrateConnection.pull();
+    private char getConcentrate() {
+        if (internalConcentrateStorage == 0) concentrateConnection.pull();
         char tmp = internalConcentrateStorage;
         internalConcentrateStorage = 0;
         return tmp;
@@ -82,10 +81,9 @@ public class BottlingPlant implements IHoseConnectable, IBottlingPlant {
         isStarted = started;
     }
 
-    //TODO Test this
     @Override
-    public void fillBottle(Bottle bottle){
-        if(!isStarted) throw new IllegalStateException("Cant fill bottles while off.");
+    public void fillBottle(Bottle bottle) {
+        if (!isStarted) throw new IllegalStateException("Cant fill bottles while off.");
 
         int size = bottle.getSize();
 

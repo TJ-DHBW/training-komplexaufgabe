@@ -5,7 +5,6 @@ import s59.bottlingPlant.IBottlingPlant;
 public class Start implements ICommand {
     private IBottlingPlant target;
 
-    //TODO Test
     @Override
     public void execute() {
         target.setStarted(true);

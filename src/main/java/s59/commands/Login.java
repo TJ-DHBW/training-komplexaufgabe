@@ -13,8 +13,6 @@ public class Login implements ICommand {
         this.password = password;
     }
 
-
-    //TODO Test
     @Override
     public void execute() {
         if (target.logIn(userName, password)) {
